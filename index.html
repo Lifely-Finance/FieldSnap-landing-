@@ -272,6 +272,20 @@
       .hero__ctas{flex-direction:column}
       .hero__ctas .btn{width:100%;justify-content:center}
     }
+    /* ── Doc modal ── */
+    .doc-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s}
+    .doc-overlay.open{opacity:1;pointer-events:all}
+    .doc-modal{background:var(--card);border:1px solid var(--b);border-radius:16px;max-width:600px;width:100%;max-height:80vh;display:flex;flex-direction:column;transform:translateY(20px);transition:transform .25s;position:relative}
+    .doc-overlay.open .doc-modal{transform:translateY(0)}
+    .doc-modal__head{padding:24px 28px 16px;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+    .doc-modal__title{font-family:var(--fH);font-size:24px;font-weight:900;text-transform:uppercase;color:var(--txt)}
+    .doc-modal__close{background:none;border:1px solid var(--b);border-radius:7px;padding:7px;cursor:pointer;color:var(--sub);font-size:15px;line-height:1;transition:all .2s}
+    .doc-modal__close:hover{color:var(--txt);border-color:var(--bH)}
+    .doc-modal__body{padding:24px 28px;overflow-y:auto;font-size:14px;color:var(--sub);line-height:1.75}
+    .doc-modal__body h3{font-family:var(--fH);font-size:17px;font-weight:700;text-transform:uppercase;color:var(--txt);margin:20px 0 8px}
+    .doc-modal__body h3:first-child{margin-top:0}
+    .doc-modal__body p{margin-bottom:10px}
+
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" onload="emailjs.init({publicKey:'02DWn6RHaW-9n2MCX'})"></script>
 </head>
@@ -719,8 +733,8 @@
     <div class="footer__bottom">
       <div class="footer__copy">© 2026 FieldSnap · field-snap.vercel.app</div>
       <div class="footer__blnks">
-        <a href="#">Конфиденциальность</a>
-        <a href="#">Условия</a>
+        <a href="#" onclick="openDoc('privacy');return false;">Конфиденциальность</a>
+        <a href="#" onclick="openDoc('terms');return false;">Условия</a>
       </div>
     </div>
   </div>
@@ -814,5 +828,82 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.08});
 document.querySelectorAll('.a').forEach(el=>obs.observe(el));
 </script>
+
+<!-- DOC MODALS -->
+<div class="doc-overlay" id="doc-overlay" onclick="handleDocOv(event)">
+  <div class="doc-modal">
+    <div class="doc-modal__head">
+      <div class="doc-modal__title" id="doc-title">Документ</div>
+      <button class="doc-modal__close" onclick="closeDoc()">✕</button>
+    </div>
+    <div class="doc-modal__body" id="doc-body"></div>
+  </div>
+</div>
+
+<script>
+const docs = {
+  privacy: {
+    title: 'Политика конфиденциальности',
+    body: `
+      <h3>1. Общие положения</h3>
+      <p>Настоящая политика конфиденциальности описывает, как FieldSnap (далее — «Сервис») собирает, использует и защищает информацию, которую вы предоставляете при использовании лендинга field-snap.vercel.app.</p>
+
+      <h3>2. Какие данные мы собираем</h3>
+      <p>При заполнении формы заявки мы собираем: имя, номер телефона, название компании и размер команды. Эти данные используются исключительно для связи с вами по поводу демонстрации или запуска пилота FieldSnap.</p>
+
+      <h3>3. Использование данных</h3>
+      <p>Ваши данные не передаются третьим лицам, не продаются и не используются в рекламных целях. Данные из формы поступают напрямую на почту владельца сервиса и используются только для обратной связи.</p>
+
+      <h3>4. Хранение данных</h3>
+      <p>Данные формы передаются через сервис EmailJS и хранятся в соответствии с их политикой конфиденциальности (emailjs.com). Мы не храним данные форм на собственных серверах.</p>
+
+      <h3>5. Ваши права</h3>
+      <p>Вы можете в любой момент запросить удаление своих данных, написав на <a href="mailto:FieldSnap@ya.ru" style="color:var(--acc)">FieldSnap@ya.ru</a>.</p>
+
+      <h3>6. Контакты</h3>
+      <p>По вопросам конфиденциальности: <a href="mailto:FieldSnap@ya.ru" style="color:var(--acc)">FieldSnap@ya.ru</a></p>
+    `
+  },
+  terms: {
+    title: 'Условия использования',
+    body: `
+      <h3>1. Общие положения</h3>
+      <p>Используя сайт field-snap.vercel.app, вы принимаете настоящие условия использования. Сайт является информационным лендингом продукта FieldSnap — приложения для управления выездной работой.</p>
+
+      <h3>2. Назначение сайта</h3>
+      <p>Сайт предназначен для ознакомления с возможностями FieldSnap и отправки заявок на демонстрацию или пилотный запуск. Размещённая информация носит ознакомительный характер.</p>
+
+      <h3>3. Заявки и обратная связь</h3>
+      <p>Отправляя форму заявки, вы соглашаетесь на обработку указанных контактных данных для связи с вами. Мы обязуемся ответить в течение одного рабочего дня.</p>
+
+      <h3>4. Интеллектуальная собственность</h3>
+      <p>Все материалы сайта, включая тексты, изображения и интерфейсные элементы, принадлежат FieldSnap. Использование материалов без разрешения запрещено.</p>
+
+      <h3>5. Ограничение ответственности</h3>
+      <p>Сервис предоставляется «как есть». Мы не несём ответственности за перебои в работе сайта, связанные с техническими причинами на стороне хостинга или пользователя.</p>
+
+      <h3>6. Контакты</h3>
+      <p>По вопросам условий использования: <a href="mailto:FieldSnap@ya.ru" style="color:var(--acc)">FieldSnap@ya.ru</a></p>
+    `
+  }
+};
+
+function openDoc(type) {
+  const d = docs[type];
+  document.getElementById('doc-title').textContent = d.title;
+  document.getElementById('doc-body').innerHTML = d.body;
+  document.getElementById('doc-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDoc() {
+  document.getElementById('doc-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleDocOv(e) {
+  if (e.target === document.getElementById('doc-overlay')) closeDoc();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDoc(); });
+</script>
+
 </body>
 </html>
