@@ -778,10 +778,49 @@ function openModal(t){
 }
 function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
 function handleOv(e){if(e.target===document.getElementById('overlay'))closeModal();}
-function submitForm(){
-  if(!document.getElementById('fName').value.trim()||!document.getElementById('fTel').value.trim()){alert('Заполните имя и телефон');return;}
-  document.getElementById('mForm').style.display='none';
-  document.getElementById('mOk').style.display='block';
+async function submitForm(){
+  const name    = document.getElementById('fName').value.trim();
+  const tel     = document.getElementById('fTel').value.trim();
+  const company = document.getElementById('fCo').value.trim();
+  const size    = document.getElementById('fSize').value;
+  const subject = document.getElementById('mTitle').textContent;
+
+  if(!name || !tel){ alert('Заполните имя и телефон'); return; }
+
+  const btn = document.querySelector('.modal__submit');
+  btn.textContent = 'Отправляем...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '0129912b-67a8-4cfa-9814-e0a60a292f9b',
+        subject: 'FieldSnap — ' + subject,
+        from_name: 'FieldSnap Landing',
+        name:    name,
+        phone:   tel,
+        company: company || '—',
+        team:    size    || '—',
+        message: 'Тип заявки: ' + subject + '\nИмя: ' + name + '\nКомпания: ' + (company||'—') + '\nТелефон: ' + tel + '\nСотрудников: ' + (size||'—'),
+        botcheck: ''
+      })
+    });
+    const data = await res.json();
+    if(data.success){
+      document.getElementById('mForm').style.display='none';
+      document.getElementById('mOk').style.display='block';
+    } else {
+      alert('Ошибка отправки. Попробуйте ещё раз или напишите напрямую: FieldSnap@ya.ru');
+      btn.textContent = 'Отправить заявку';
+      btn.disabled = false;
+    }
+  } catch(e) {
+    alert('Ошибка соединения. Напишите нам напрямую: FieldSnap@ya.ru');
+    btn.textContent = 'Отправить заявку';
+    btn.disabled = false;
+  }
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.08});
