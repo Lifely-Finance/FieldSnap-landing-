@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&amp;family=Barlow:wght@400;500&amp;family=DM+Mono:wght@400;500&amp;display=swap');
+    </style>
+
+    <!-- Background grid pattern -->
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#1A2739" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
+
+    <!-- Orange glow top-right -->
+    <radialGradient id="glowOrange" cx="80%" cy="0%" r="55%">
+      <stop offset="0%" stop-color="#FF5F1F" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FF5F1F" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Blue glow bottom-left -->
+    <radialGradient id="glowBlue" cx="0%" cy="100%" r="50%">
+      <stop offset="0%" stop-color="#3D8EFF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#3D8EFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Stripe gradient -->
+    <linearGradient id="stripeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF5F1F" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#FF5F1F" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#FF5F1F" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FF5F1F" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip for right mockup area -->
+    <clipPath id="rightClip">
+      <rect x="820" y="0" width="380" height="630"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── BACKGROUND ── -->
+  <rect width="1200" height="630" fill="#090B11"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glowOrange)"/>
+  <rect width="1200" height="630" fill="url(#glowBlue)"/>
+
+  <!-- Diagonal accent stripes -->
+  <rect x="840" y="-40" width="3" height="720" fill="url(#stripeGrad)" transform="skewX(-10)"/>
+  <rect x="860" y="-40" width="1" height="720" fill="url(#stripeGrad)" opacity="0.4" transform="skewX(-10)"/>
+
+  <!-- ── LOGO ── -->
+  <!-- Logo icon bg -->
+  <rect x="60" y="52" width="44" height="44" rx="11" fill="#FF5F1F"/>
+  <!-- Logo icon grid -->
+  <rect x="68" y="60" width="11" height="11" rx="2.5" fill="white" opacity="0.9"/>
+  <rect x="82" y="60" width="11" height="11" rx="2.5" fill="white" opacity="0.6"/>
+  <rect x="68" y="74" width="11" height="11" rx="2.5" fill="white" opacity="0.6"/>
+  <rect x="82" y="74" width="11" height="11" rx="2.5" fill="white" opacity="0.3"/>
+  <!-- Logo text -->
+  <text x="116" y="82" font-family="'Barlow Condensed', sans-serif" font-size="27" font-weight="900" fill="#E8EFF8" letter-spacing="2">FIELDSNAP</text>
+
+  <!-- ── EYEBROW PILL ── -->
+  <rect x="60" y="160" width="296" height="30" rx="15" fill="rgba(255,95,31,0.1)" stroke="#FF5F1F" stroke-width="1" stroke-opacity="0.25"/>
+  <circle cx="80" cy="175" r="4" fill="#FF5F1F"/>
+  <text x="92" y="180" font-family="'DM Mono', monospace" font-size="11" font-weight="500" fill="#FF5F1F" letter-spacing="1.5">УПРАВЛЕНИЕ ВЫЕЗДАМИ</text>
+
+  <!-- ── HEADLINE ── -->
+  <text x="60" y="290" font-family="'Barlow Condensed', sans-serif" font-size="108" font-weight="900" fill="#E8EFF8" letter-spacing="-1">ЗАЯВКИ</text>
+  <text x="60" y="390" font-family="'Barlow Condensed', sans-serif" font-size="108" font-weight="900" fill="#E8EFF8" letter-spacing="-1">БЕЗ <tspan fill="#FF5F1F">ХАОСА</tspan></text>
+
+  <!-- ── SUBTITLE ── -->
+  <text x="60" y="434" font-family="'Barlow', sans-serif" font-size="17" fill="#6B88A2">Назначайте выезды, контролируйте техников</text>
+  <text x="60" y="458" font-family="'Barlow', sans-serif" font-size="17" fill="#6B88A2">и фиксируйте результат — в одном приложении.</text>
+
+  <!-- ── ROLE PILLS ── -->
+  <!-- Pill 1: Диспетчер -->
+  <rect x="60" y="492" width="130" height="34" rx="8" fill="#111820" stroke="#1A2739" stroke-width="1"/>
+  <circle cx="82" cy="509" r="4" fill="#0FD47F"/>
+  <text x="94" y="514" font-family="'Barlow', sans-serif" font-size="14" font-weight="500" fill="#E8EFF8">Диспетчер</text>
+
+  <!-- Pill 2: Техник -->
+  <rect x="200" y="492" width="108" height="34" rx="8" fill="#111820" stroke="#1A2739" stroke-width="1"/>
+  <circle cx="220" cy="509" r="4" fill="#3D8EFF"/>
+  <text x="232" y="514" font-family="'Barlow', sans-serif" font-size="14" font-weight="500" fill="#E8EFF8">Техник</text>
+
+  <!-- Pill 3: Администратор -->
+  <rect x="318" y="492" width="168" height="34" rx="8" fill="#111820" stroke="#1A2739" stroke-width="1"/>
+  <circle cx="338" cy="509" r="4" fill="#F5A623"/>
+  <text x="350" y="514" font-family="'Barlow', sans-serif" font-size="14" font-weight="500" fill="#E8EFF8">Администратор</text>
+
+  <!-- ── BOTTOM BAR ── -->
+  <text x="60" y="594" font-family="'DM Mono', monospace" font-size="13" fill="#2A3F56" letter-spacing="0.5">field-snap.vercel.app</text>
+
+  <!-- CTA Button -->
+  <rect x="460" y="572" width="228" height="42" rx="10" fill="#FF5F1F"/>
+  <text x="574" y="598" font-family="'Barlow Condensed', sans-serif" font-size="16" font-weight="700" fill="white" letter-spacing="1" text-anchor="middle">ЗАПУСТИТЬ ПИЛОТ →</text>
+
+  <!-- ── RIGHT MOCKUP PANEL ── -->
+
+  <!-- Stats card -->
+  <rect x="856" y="55" width="298" height="130" rx="12" fill="#111820" stroke="#1A2739" stroke-width="1"/>
+  <text x="874" y="80" font-family="'DM Mono', monospace" font-size="10" fill="#6B88A2" letter-spacing="0.8">СЕГОДНЯ · 17 МАЯ</text>
+  <!-- stat 1 -->
+  <rect x="874" y="90" width="126" height="56" rx="8" fill="#0D1117" stroke="#1A2739" stroke-width="1"/>
+  <text x="892" y="118" font-family="'Barlow Condensed', sans-serif" font-size="30" font-weight="800" fill="#FF5F1F">12</text>
+  <text x="892" y="136" font-family="'DM Mono', monospace" font-size="9" fill="#6B88A2" letter-spacing="0.6">АКТИВНЫХ</text>
+  <!-- stat 2 -->
+  <rect x="1008" y="90" width="126" height="56" rx="8" fill="#0D1117" stroke="#1A2739" stroke-width="1"/>
+  <text x="1026" y="118" font-family="'Barlow Condensed', sans-serif" font-size="30" font-weight="800" fill="#0FD47F">8</text>
+  <text x="1026" y="136" font-family="'DM Mono', monospace" font-size="9" fill="#6B88A2" letter-spacing="0.6">ЗАКРЫТО</text>
+  <!-- stat 3 -->
+  <rect x="874" y="154" width="126" height="20" rx="5" fill="none"/>
+  <text x="892" y="168" font-family="'DM Mono', monospace" font-size="10" fill="#6B88A2">3 в пути · 1 просроч.</text>
+
+  <!-- Order card 1 -->
+  <rect x="856" y="200" width="298" height="108" rx="12" fill="#111820" stroke="#1A2739" stroke-width="1"/>
+  <!-- header -->
+  <text x="874" y="224" font-family="'DM Mono', monospace" font-size="10" fill="#6B88A2" letter-spacing="0.6">ЗВК-0041</text>
+  <!-- status badge green -->
+  <rect x="1060" y="210" width="76" height="22" rx="6" fill="rgba(15,212,127,0.1)" stroke="rgba(15,212,127,0.2)" stroke-width="1"/>
+  <circle cx="1073" cy="221" r="3.5" fill="#0FD47F"/>
+  <text x="1081" y="225" font-family="'DM Mono', monospace" font-size="9.5" fill="#0FD47F">Закрыта</text>
+  <!-- title -->
+  <text x="874" y="248" font-family="'Barlow Condensed', sans-serif" font-size="16" font-weight="700" fill="#E8EFF8" letter-spacing="0.3">ЗАМЕНА НАСОСА</text>
+  <text x="874" y="266" font-family="'Barlow', sans-serif" font-size="12" fill="#6B88A2">ул. Ленина, 42 · 09:30</text>
+  <!-- divider -->
+  <line x1="874" y1="278" x2="1136" y2="278" stroke="#1A2739" stroke-width="1"/>
+  <!-- tech row -->
+  <circle cx="888" cy="295" r="11" fill="#3D8EFF"/>
+  <text x="888" y="299" font-family="'Barlow Condensed', sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">АК</text>
+  <text x="904" y="299" font-family="'Barlow', sans-serif" font-size="12" font-weight="500" fill="#E8EFF8">Алексей Климов</text>
+  <text x="1110" y="299" font-family="'DM Mono', monospace" font-size="11" fill="#6B88A2" text-anchor="end">10:47</text>
+
+  <!-- Order card 2 -->
+  <rect x="856" y="322" width="298" height="108" rx="12" fill="#111820" stroke="#1A2739" stroke-width="1"/>
+  <text x="874" y="346" font-family="'DM Mono', monospace" font-size="10" fill="#6B88A2" letter-spacing="0.6">ЗВК-0042</text>
+  <!-- status badge orange -->
+  <rect x="1048" y="332" width="88" height="22" rx="6" fill="rgba(255,95,31,0.1)" stroke="rgba(255,95,31,0.2)" stroke-width="1"/>
+  <circle cx="1062" cy="343" r="3.5" fill="#FF5F1F"/>
+  <text x="1070" y="347" font-family="'DM Mono', monospace" font-size="9.5" fill="#FF5F1F">В работе</text>
+  <text x="874" y="370" font-family="'Barlow Condensed', sans-serif" font-size="16" font-weight="700" fill="#E8EFF8" letter-spacing="0.3">ДИАГНОСТИКА КОТЛА</text>
+  <text x="874" y="388" font-family="'Barlow', sans-serif" font-size="12" fill="#6B88A2">пр. Мира, 8 · 13:00</text>
+  <line x1="874" y1="400" x2="1136" y2="400" stroke="#1A2739" stroke-width="1"/>
+  <circle cx="888" cy="417" r="11" fill="#0FD47F"/>
+  <text x="888" y="421" font-family="'Barlow Condensed', sans-serif" font-size="10" font-weight="700" fill="#090B11" text-anchor="middle">МС</text>
+  <text x="904" y="421" font-family="'Barlow', sans-serif" font-size="12" font-weight="500" fill="#E8EFF8">Михаил Соков</text>
+  <text x="1110" y="421" font-family="'DM Mono', monospace" font-size="11" fill="#6B88A2" text-anchor="end">12:55</text>
+
+  <!-- Order card 3 -->
+  <rect x="856" y="444" width="298" height="108" rx="12" fill="#111820" stroke="#1A2739" stroke-width="1"/>
+  <text x="874" y="468" font-family="'DM Mono', monospace" font-size="10" fill="#6B88A2" letter-spacing="0.6">ЗВК-0043</text>
+  <!-- status badge blue -->
+  <rect x="1046" y="454" width="92" height="22" rx="6" fill="rgba(61,142,255,0.1)" stroke="rgba(61,142,255,0.2)" stroke-width="1"/>
+  <circle cx="1060" cy="465" r="3.5" fill="#3D8EFF"/>
+  <text x="1068" y="469" font-family="'DM Mono', monospace" font-size="9.5" fill="#3D8EFF">Назначена</text>
+  <text x="874" y="492" font-family="'Barlow Condensed', sans-serif" font-size="16" font-weight="700" fill="#E8EFF8" letter-spacing="0.3">ТО КОНДИЦИОНЕРА</text>
+  <text x="874" y="510" font-family="'Barlow', sans-serif" font-size="12" fill="#6B88A2">ул. Садовая, 17 · 15:30</text>
+  <line x1="874" y1="522" x2="1136" y2="522" stroke="#1A2739" stroke-width="1"/>
+  <circle cx="888" cy="539" r="11" fill="#F5A623"/>
+  <text x="888" y="543" font-family="'Barlow Condensed', sans-serif" font-size="10" font-weight="700" fill="#090B11" text-anchor="middle">ИП</text>
+  <text x="904" y="543" font-family="'Barlow', sans-serif" font-size="12" font-weight="500" fill="#E8EFF8">Иван Петров</text>
+  <text x="1110" y="543" font-family="'DM Mono', monospace" font-size="11" fill="#6B88A2" text-anchor="end">14:10</text>
+
+  <!-- Fade right edge -->
+  <defs>
+    <linearGradient id="fadeRight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#090B11" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#090B11" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect x="1100" y="0" width="100" height="630" fill="url(#fadeRight)"/>
+
+  <!-- Fade bottom -->
+  <defs>
+    <linearGradient id="fadeBottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090B11" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#090B11" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="530" width="1200" height="100" fill="url(#fadeBottom)"/>
+
+</svg>
