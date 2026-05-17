@@ -273,7 +273,7 @@
       .hero__ctas .btn{width:100%;justify-content:center}
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" onload="emailjs.init({publicKey:'02DWn6RHaW-9n2MCX'})"></script>
 </head>
 <body>
 
@@ -779,8 +779,6 @@ function openModal(t){
 }
 function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
 function handleOv(e){if(e.target===document.getElementById('overlay'))closeModal();}
-emailjs.init('02DWn6RHaW-9n2MCX');
-
 async function submitForm(){
   const name    = document.getElementById('fName').value.trim();
   const tel     = document.getElementById('fTel').value.trim();
@@ -805,7 +803,8 @@ async function submitForm(){
     document.getElementById('mForm').style.display='none';
     document.getElementById('mOk').style.display='block';
   } catch(e) {
-    alert('Ошибка отправки. Напишите напрямую: FieldSnap@ya.ru');
+    console.error('EmailJS error:', e);
+    alert('Ошибка отправки: ' + (e.text || e.message || JSON.stringify(e)) + '\n\nНапишите напрямую: FieldSnap@ya.ru');
     btn.textContent = 'Отправить заявку';
     btn.disabled = false;
   }
