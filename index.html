@@ -786,12 +786,25 @@ function openModal(t){
   const c=mCfg[t]||mCfg.pilot;
   document.getElementById('mTitle').textContent=c.title;
   document.getElementById('mSub').textContent=c.sub;
+  // reset form fields
+  document.getElementById('fName').value='';
+  document.getElementById('fCo').value='';
+  document.getElementById('fTel').value='';
+  document.getElementById('fSize').value='';
+  // reset button
+  const btn=document.querySelector('.modal__submit');
+  btn.textContent='Отправить заявку';
+  btn.disabled=false;
+  // show form, hide success
   document.getElementById('mForm').style.display='block';
   document.getElementById('mOk').style.display='none';
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
 function handleOv(e){if(e.target===document.getElementById('overlay'))closeModal();}
 async function submitForm(){
   const name    = document.getElementById('fName').value.trim();
