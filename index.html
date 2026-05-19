@@ -176,6 +176,22 @@
     .feat__title{font-family:var(--fH);font-size:17px;font-weight:700;text-transform:uppercase;color:var(--txt);margin-bottom:7px}
     .feat__text{font-size:13px;color:var(--sub);line-height:1.6}
 
+    /* ── HOOK (compact summary after hero) ── */
+    .hook{padding:40px 0 50px}
+    .hook__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+    .hook__card{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:22px 24px;transition:border-color .25s}
+    .hook__card:hover{border-color:var(--bH)}
+    .hook__card--feat{border-color:var(--acc)}
+    .hook__card--feat:hover{border-color:var(--acc)}
+    .hook__label{font-family:var(--fM);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+    .hook__title{font-family:var(--fH);font-size:18px;font-weight:800;text-transform:uppercase;color:var(--txt);margin-bottom:10px;line-height:1.15}
+    .hook__text{font-size:13px;color:var(--sub);line-height:1.55}
+    .hook__cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    @media (max-width:760px){
+      .hook__grid{grid-template-columns:1fr;gap:10px}
+      .hook{padding:30px 0 36px}
+    }
+
     /* ── CASES ── */
     .cases{padding:90px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--surf) 100%)}
     .cases__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -378,7 +394,32 @@
   </div>
 </section>
 
-<div class="div"></div>
+<!-- HOOK — короткий хук сразу после hero -->
+<section class="hook">
+  <div class="container">
+    <div class="hook__grid">
+      <div class="hook__card a">
+        <div class="hook__label">Для кого</div>
+        <div class="hook__title">HVAC и сервисные команды от 2 до 15 техников</div>
+        <div class="hook__text">Климат, инженерные системы, монтаж и обслуживание оборудования. Постоянные выезды, важна история по объектам.</div>
+      </div>
+      <div class="hook__card hook__card--feat a a1">
+        <div class="hook__label">Что вы получаете</div>
+        <div class="hook__title">Полный доступ бесплатно, на 2–3 месяца</div>
+        <div class="hook__text">Личный онбординг, прямой контакт с разработчиком, доработки под ваш процесс. Никаких карт и автосписаний.</div>
+      </div>
+      <div class="hook__card a a2">
+        <div class="hook__label">Что мы просим</div>
+        <div class="hook__title">30–40 минут связи в неделю</div>
+        <div class="hook__text">Честный отзыв что работает, а что нет. Это не "пилот за 1 ₽" — это рабочее сотрудничество.</div>
+      </div>
+    </div>
+    <div class="hook__cta a a3">
+      <button class="btn btn-primary btn-lg" onclick="openModal('pilot')">Запросить доступ</button>
+      <a href="#pricing" class="btn btn-ghost btn-lg">Подробнее об условиях</a>
+    </div>
+  </div>
+</section>
 
 <!-- PAIN -->
 <section class="pain" id="pain">
