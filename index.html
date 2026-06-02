@@ -31,6 +31,13 @@
   <meta name="twitter:description" content="Приложение для сервисных компаний. Назначение, фото, подписи, история по объектам. Работает офлайн." />
   <meta name="twitter:image" content="https://field-snap-landing.vercel.app/og-image.png" />
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#FF5F1F" />
+
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -39,6 +46,8 @@
     "name": "FieldSnap",
     "description": "Приложение для сервисных компаний: назначение выездов, фото и подписи на месте, история по каждому объекту. Работает офлайн, не зависит от Telegram и WhatsApp.",
     "url": "https://field-snap-landing.vercel.app/",
+    "logo": "https://field-snap-landing.vercel.app/logo-400.png",
+    "image": "https://field-snap-landing.vercel.app/logo-400.png",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, Android, iOS",
     "inLanguage": "ru",
@@ -96,8 +105,9 @@
     /* ── NAV ── */
     .nav{position:sticky;top:0;z-index:100;background:rgba(9,11,17,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--b)}
     .nav__i{display:flex;align-items:center;justify-content:space-between;height:58px;gap:24px}
-    .logo{display:flex;align-items:center;gap:8px;text-decoration:none}
-    .logo__icon{width:30px;height:30px;background:var(--acc);border-radius:7px;display:flex;align-items:center;justify-content:center}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo__icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;display:flex}
+    .logo__icon img{width:100%;height:100%;display:block}
     .logo__text{font-family:var(--fH);font-size:21px;font-weight:900;color:var(--txt);text-transform:uppercase;letter-spacing:.03em}
     .nav__links{display:flex;gap:24px;list-style:none}
     .nav__links a{font-size:14px;font-weight:500;color:var(--sub);text-decoration:none;transition:color .2s}
@@ -261,7 +271,10 @@
     /* ── FOOTER ── */
     .footer{background:var(--surf);border-top:1px solid var(--b);padding:44px 0 28px}
     .footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:36px}
-    .footer__brand{font-family:var(--fH);font-size:22px;font-weight:900;text-transform:uppercase;color:var(--txt);margin-bottom:8px}
+    .footer__brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .footer__brand-logo{width:36px;height:36px;border-radius:9px;overflow:hidden;flex-shrink:0}
+    .footer__brand-logo img{width:100%;height:100%;display:block}
+    .footer__brand-name{font-family:var(--fH);font-size:22px;font-weight:900;text-transform:uppercase;color:var(--txt)}
     .footer__bdesc{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:20px}
     .footer__contacts{display:flex;flex-direction:column;gap:10px}
     .footer__contact{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--sub);text-decoration:none;transition:color .2s}
@@ -362,10 +375,7 @@
     <div class="nav__i">
       <a href="#" class="logo">
         <div class="logo__icon">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M2 4h12M2 8h8M2 12h5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
-            <circle cx="13" cy="12" r="2.5" fill="#fff" opacity=".9"/>
-          </svg>
+          <img src="/logo.png" alt="FieldSnap" width="32" height="32" />
         </div>
         <span class="logo__text">FieldSnap</span>
       </a>
@@ -778,7 +788,12 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand">FieldSnap</div>
+        <div class="footer__brand">
+          <div class="footer__brand-logo">
+            <img src="/logo.png" alt="FieldSnap" width="36" height="36" />
+          </div>
+          <span class="footer__brand-name">FieldSnap</span>
+        </div>
         <div class="footer__bdesc">Приложение для выездных сервисных команд. Заявка, выезд, фото, подпись, история по объекту — в одном инструменте. Работает офлайн.</div>
         <div class="footer__contacts">
           <a href="mailto:FieldSnap@ya.ru" class="footer__contact">
